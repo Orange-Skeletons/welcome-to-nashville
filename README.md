@@ -2,7 +2,7 @@
 
 ### Search For Things to Do in Music City
 -----
-Welcome to Music City! You can use our application to search for the followin Nashville attractions:
+Welcome to Music City! You can use our application to search for the following Nashville attractions:
 * Parks
 * Restaurants
 * Meetups

@@ -1,23 +1,19 @@
 // Purpose: This file handles event listeners.
+import form from "./searchform-manager.js"
 
-// TODO: delete fake function after everyone creates their own function 
-const myfunction = () => {
-    console.log("pie")
-}
-
-const attachSearchEvent = () => {
+const searchEvent = {
+attachSearchEvent() {
     const concertsSearchButton = document.querySelector("#concertsSearchButton")
-    console.log(concertsSearchButton)
-    concertsSearchButton.addEventListener("click", searchFormTicketmaster)
+    concertsSearchButton.addEventListener("click", form.searchFormTicketmaster)
 
     const parksSearchButton = document.querySelector("#parksSearchButton")
-    parksSearchButton.addEventListener("click", searchFormParks)
+    parksSearchButton.addEventListener("click", form.searchFormParks)
 
     const restaurantsSearchButton = document.querySelector("#restaurantsSearchButton")
-    restaurantsSearchButton.addEventListener("click", searchFormZomato)
+    restaurantsSearchButton.addEventListener("click", form.searchFormZomato)
 
     const meetupsSearchButton = document.querySelector("#meetupsSearchButton")
-    meetupsSearchButton.addEventListener("click", searchFormEventbrite)
+    meetupsSearchButton.addEventListener("click", form.searchFormEventbrite)
 
 
     const restaurantEventFunction = (event) => {
@@ -28,9 +24,9 @@ const attachSearchEvent = () => {
         }
     }
     // Selects restaurant input
-    enterKeyHandler = document.getElementById("restaurants-input")
+    let enterKeyHandlerRestaurants = document.getElementById("restaurants-input")
     // Execute a function when the user releases a key on the keyboard
-    enterKeyHandler.addEventListener("keyup", restaurantEventFunction);
+    enterKeyHandlerRestaurants.addEventListener("keyup", restaurantEventFunction);
 
 
     const concertsEventFunction = (event) => {
@@ -41,9 +37,9 @@ const attachSearchEvent = () => {
         }
     }
     // Selects restaurant input
-    enterKeyHandler = document.getElementById("concerts-input")
+    let enterKeyHandlerConcerts = document.getElementById("concerts-input")
     // Execute a function when the user releases a key on the keyboard
-    enterKeyHandler.addEventListener("keyup", concertsEventFunction);
+    enterKeyHandlerConcerts.addEventListener("keyup", concertsEventFunction);
 
 
     const meetupsEventFunction = (event) => {
@@ -54,9 +50,9 @@ const attachSearchEvent = () => {
         }
     }
     // Selects restaurant input
-    enterKeyHandler = document.getElementById("meetups-input")
+    let enterKeyHandlerMeetups = document.getElementById("meetups-input")
     // Execute a function when the user releases a key on the keyboard
-    enterKeyHandler.addEventListener("keyup", meetupsEventFunction);
+    enterKeyHandlerMeetups.addEventListener("keyup", meetupsEventFunction);
 
 
     const parksEventFunction = (event) => {
@@ -67,9 +63,11 @@ const attachSearchEvent = () => {
         }
     }
     // Selects restaurant input
-    enterKeyHandler = document.getElementById("parks-dropdown-box")
+    let enterKeyHandlerParks = document.getElementById("parks-dropdown-box")
     // Execute a function when the user releases a key on the keyboard
-    enterKeyHandler.addEventListener("keyup", parksEventFunction);
+    enterKeyHandlerParks.addEventListener("keyup", parksEventFunction);
 
+  }
 }
 
+export default searchEvent

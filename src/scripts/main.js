@@ -1,12 +1,19 @@
-renderPageTitle();
+// import 'bootstrap';
+import pageTitle from "./dom.js" 
+import form from "./searchform-manager.js"
+import searchEvent from "./event-manager.js"
+import itinerary from "./itinerary-manager.js"
+import results from "./searchresults-manager.js"
 
-buildSearchForm();
+pageTitle.renderPageTitle();
 
-attachSearchEvent();
+form.buildSearchForm();
 
-renderResultsContainer();
+searchEvent.attachSearchEvent();
 
-createItineraryContainer();
+results.renderResultsContainer();
+
+itinerary.createItineraryContainer();
 
 
 

@@ -1,66 +1,65 @@
 // Purpose: This file populates the Results section of the index.html page
+
+const results = {
 // This function will append search results to DOM.
-const renderResultsContainer = () => {
+renderResultsContainer() {
     // Creates variable to be called and appended to index element with class of resultsContainer.
     const searchResults = `
-    <div class="card" style="width: 18rem;">
+    <div class="card">
     <div class="card-header">
-        <h3>Results</h3>
+        <h3>Search Results</h3>
     </div>
     <ul class="list-group list-group-flush">
-      
+    <p id="noresults">No results found</p>  
     </ul>
   </div>`
     // States variable to query select and eventually appends searchResults innerHTML into  
     const resultsContainer = document.querySelector(".resultsContainer")
     resultsContainer.innerHTML = searchResults
-}
+},
 
 // factory function to add saved result to corresponding category in the itineraryContainer
-const addToItinerary = (name, category) => {
+addToItinerary(name, category) {
   let categoryField = document.querySelector(`#${category}-itinerary`)
   categoryField.innerText = name
-}
+},
 
 // factory function that grabs the textContent of the result that the save was clicked on
-const saveCard = () => {
+saveCard() {
   // get card Id from event
   let cardId = event.target.id.split("--")[1];
   let category = event.path[1].id.split("--")[0]
-  console.log("card class", category);
   let cardToSave = document.querySelector(`#${category}--${cardId} > #name`).textContent;
-  console.log("card text", cardToSave);
-  addToItinerary(cardToSave, category)
-}
+  results.addToItinerary(cardToSave, category)
+},
 
-const renderZomato = (htmlElement) => {
+renderZomato(htmlElement) {
   console.log("Rendering Zomato Results")
   let resultContainer = document.querySelector(".resultsContainer")
   resultContainer.innerHTML = htmlElement
-}
+},
 
-const createZomatoHtml = (restaurants) => {
+createZomatoHtml(restaurants) {
   return `<p>${restaurants.restaurant.name}</p>`
-}
+},
 // factory function that renders search results to the resultsContainer
-const renderCardToDom = (card) => {
+renderCardToDom(card) {
   let cardList = document.querySelector(".list-group")
   cardList.appendChild(card);
-}
+},
 
 // iterate length of current card list and create new id
-const getNewIdNumber = () => {
+getNewIdNumber() {
   let cardArrayLength = document.getElementsByClassName("list-group-item").length;
-  console.log("card array", cardArrayLength);
   return cardArrayLength + 1 // prevent 0-indexed card id list
-}
+},
 
 // function that should be called in the .forEach loop of the fetch call flow
-const createCardContainer = (name, location, category) => {
+createCardContainer(name, location, category) {
   // console.log("name", name)
   const cardContainer = document.createElement("li")
   cardContainer.className = `${category} list-group-item`;
-  let idNumber = getNewIdNumber();
+  let idNumber = results.getNewIdNumber();
   cardContainer.id = `${category}--${idNumber}`;
 
   const nameElement = document.createElement("p");
@@ -74,7 +73,7 @@ const createCardContainer = (name, location, category) => {
   const saveElement = document.createElement("button")
   saveElement.id = `save--${idNumber}`;
   saveElement.textContent = "Save";
-  saveElement.addEventListener("click", saveCard);
+  saveElement.addEventListener("click", results.saveCard);
 
   // add child items to card
   cardContainer.appendChild(nameElement);
@@ -82,4 +81,7 @@ const createCardContainer = (name, location, category) => {
   cardContainer.appendChild(saveElement);
   // console.log(cardContainer);
   return cardContainer
+  }
 }
+
+export default results
