@@ -56,19 +56,14 @@ searchFormEventbrite() {
         data.getEventbriteData(searchString)
         .then(({events}) => {
             events.forEach(event => {
-                // save 'name' and 'address' to variables for result card creation
-                // console.log("event", event)
-                const name = event.description.text
-                // console.log("description", name)
-                let address = `${event.venue.name}`
-                if (address === "null"){
-                    address = "Address unavailable"
+                // save 'name' and 'description' to variables for result card creation
+                const name = event.name.text
+                let description = `${event.description.text}`
+                if (description === "null"){
+                    description = "Description unavailable"
                 }
-                // console.log('name:', name)
-                // console.log('address:', address)
-                // create new search result card
-                const eventEl = results.createCardContainer(name, address, "meetup")
-                // console.log("eventEl", eventEl)
+                const eventEl = results.createCardContainer(name, description, "meetup")
+                console.log("eventEl", eventEl)
                 results.renderCardToDom(eventEl)
             }
             ) 
