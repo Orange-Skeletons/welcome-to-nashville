@@ -49,6 +49,7 @@ clearResults() {
 // grab event search data and query the API
 searchFormEventbrite() {
     let searchString = document.querySelector("#meetups-input").value;
+    let counter = 0
 
     form.clearResults() 
     // prevent empty string search 
@@ -62,9 +63,12 @@ searchFormEventbrite() {
                 if (description === "null"){
                     description = "Description unavailable"
                 }
-                const eventEl = results.createCardContainer(name, description, "meetup")
-                console.log("eventEl", eventEl)
-                results.renderCardToDom(eventEl)
+                if (counter < 6){
+                    const eventEl = results.createCardContainer(name, description, "meetup")
+                    console.log("eventEl", eventEl)
+                    results.renderCardToDom(eventEl)
+                }
+                counter++
             }
             ) 
         }
