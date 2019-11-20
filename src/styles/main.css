@@ -10,6 +10,7 @@ h3 {
 
 button {
     color: white;
+    outline: none !important;
     background-color: orange;
     border: none;
     border-radius: 5px;
@@ -17,6 +18,10 @@ button {
 
 button:hover {
     background-color: rgb(196, 121, 9);
+}
+
+button:focus {
+    outline: none;
 }
 
 p#name {
