@@ -1,9 +1,0 @@
-// Purpose: This file will hold all of your API keys.
-
-const ticketmasterApiKey = "YOUR_API_KEY_HERE"
-
-const eventbriteApiKey = "YOUR_API_KEY_HERE"
-
-const zomatoApiKey = "YOUR_API_KEY_HERE"
-
-const parksApiKey = "YOUR_API_KEY_HERE"

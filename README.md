@@ -1,7 +1,10 @@
 # Welcome to Nashville!
 
+
 ### Search For Things to Do in Music City
+![](./src/images/Welcome-To-Nashville.gif)
 -----
+
 Welcome to Music City! You can use our application to search for the following Nashville attractions:
 * Parks
 * Restaurants

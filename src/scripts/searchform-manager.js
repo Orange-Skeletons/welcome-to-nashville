@@ -65,7 +65,6 @@ searchFormEventbrite() {
                 }
                 if (counter < 6){
                     const eventEl = results.createCardContainer(name, description, "meetup")
-                    console.log("eventEl", eventEl)
                     results.renderCardToDom(eventEl)
                 }
                 counter++
@@ -105,9 +104,7 @@ searchFormZomato() {
     form.clearResults()
     if (searchString) {
         data.getZomatoData(searchString)
-        //for now this console logs restaurant element
             .then(( food ) => {
-                // console.log(food.restaurants)
                 food.restaurants.forEach(restaurant => {
                     const restaurantName = restaurant.restaurant.name
                     const restaurantAddress = restaurant.restaurant.location.address
